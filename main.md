@@ -63,6 +63,20 @@ Para conocer el sistema operativo que se está ejecutando
 uname -a
 ```
 
+Para el uso que se le está dando al disco:
+
+```bash
+du -h
+du -sh
+```
+
+Para ver archivos y directorios con más detalle 
+
+```bash
+du ls -lah
+```
+
+
 
 **ls** Nos permite listar los archivos y carpetas del directorio
 
@@ -70,7 +84,79 @@ uname -a
 
 **touch** Nos permite crear archivos
 
-**cat archivo** Permite ver el contenido de un archivo.
+**cat <archivo>** Permite ver el contenido de un archivo.
+
+```bash
+cat readme.txt
+less readme.txt
+```
 
 **mdfind** Para buscar archivos funciona solo en macos
 
+**date**: Nos devuelve la fecha actual
+
+**df** Uso del disco, con la opción -h  para que brinde más datos
+```bash
+df -h
+```
+
+**top** Nos da un panorama del uso del sistema
+
+La arquitectura básica de un comando de bash es la siguiente:
+
+*cmd - option target
+
+Por ejemplo:
+
+```bash
+ls -lah /tmp
+```
+
+Para conocer todos los comandos disponibles de bash 
+
+```bash
+cd /usr/bin
+ls -l
+```
+
+
+**Wich** Muesta la ubicación exacta de un archivo o directorio
+
+```bash
+wich python
+```
+
+
+## Modificar archivos y directorios
+
+
+```bash
+touch newfile.txt
+mkdir newdir
+mkdir -p moredir/dir1/dir2
+rm -rf moredir
+mv newfile.txt newdir/
+```
+
+**mv** Sirve tanto para mobver como para renombrar archivos
+
+**mkdir -p** Nos permite crear múltiples directorios al mismo tiempo, es decir directorios y subdirectorios
+
+**rm -rf** Elimina todo el contenido de un directorio.
+
+
+## Procesos
+
+```bash
+jobs
+ps
+./sleeper.sh &
+fg 1
+```
+
+Cuando añadimos *&* mandamos la instrucción de ejecutar el proceso en segundo plano. Para regresar a ese proceso podemos usar *fg 1*
+
+
+```bash
+
+```
