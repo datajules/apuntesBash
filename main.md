@@ -144,6 +144,8 @@ mv newfile.txt newdir/
 
 **rm -rf** Elimina todo el contenido de un directorio.
 
+**wc** Cuenta caracteres, parabras y líneas de archivos.
+
 
 ## Procesos
 
@@ -155,6 +157,116 @@ fg 1
 ```
 
 Cuando añadimos *&* mandamos la instrucción de ejecutar el proceso en segundo plano. Para regresar a ese proceso podemos usar *fg 1*
+
+## Shell piping works
+
+Para conectar la salida de un comando con la entrada de otro empleamos el símbolo de pipe **|**
+
+```bash
+ls -l | wc -l
+```
+
+Para redirecciónar el resultado de un comando a un archivo, en lugar de a la salida de la consola podemos usar **>**.
+
+```bash
+ls -l > output.txt
+```
+
+Si se quiere agregar contenido modificando un archivo en lugar de sobreescribirlo se puede usar **>>**
+```bash
+echo "¡Hola mundo!" > output.txt
+```
+
+
+Ejecución condicionada. Se ejecuta el siguiente comando únicamente si el primero se ejecutó con éxito.
+
+```bash
+ls <file> && echo "File exists"
+```
+
+*[ -f <archivo>]* Es una prueba condicional que muestra si un archivo existe o no.
+
+*sort -r* nos permite ordenar las líneas
+```bash
+ls -l | sort -r
+```
+
+En cambio *grep* devuelve solo las líneas con el término señalado
+
+
+```bash
+ls -h | grep p
+```
+
+Para mostrar el contenido de un log que se va reescribiendo:
+
+```bash
+tail -f /var/log/dpkg.log
+```
+
+Para ver un determinado número de líneas
+```bash
+tail -n 3 /var/log/dpkg.log
+```
+Tal como existe *tail*, también es posible emplear *head* para ver el comienzo del log. 
+
+```bash
+head -n 3 /var/log/dpkg.log
+```
+
+Podemos combinar un comando como *history* con *less* para poder recorrer con las arroy todos los comandos que hemos ejecutado en la terminal
+
+```bash
+history | less
+```
+
+Otra buena combinación que podemos hacer es buscar un comando en el histórico que contenga un término en específico empleando comandos que ya hemos visto:
+
+```bash
+history | grep head
+```
+
+Otra forma de invocar comandos de history es mediante la marca *!* Porejemplo se puede indicar el comando que quiere ser invoado
+
+```bash
+!2
+```
+
+Si lo que se desea es invocar el últico comando ejecutado se emplea *!!*:
+
+```bash
+!!
+```
+
+## Secure Shell (SSH)
+
+El **SSH** es un protocolo que otorga un tunel de comunicación seguro entre dos sistemas. Permite crear un tunel encriptado, ejecución remota de comandos, y protección de los puertos.
+
+Las **SSH Keys** Son las claves públicas o privadas empleadas para autenticar y asegurar las comunicaciones entre dos sistemas sin la necesidad de emplear pasword.
+
+El **Git** es un sistema distribuido de control de versiones que permite trakear cambiosen el código soportando múltiples desarrolladores.
+
+En cambio **GitHub** Es una plataforma basada en la nube basada en Git que permite el desarrollo coordinado de proyectos.
+
+El **Por Forwarding** Es una técnica que permite redireccionar las conexiones de red entrantes en un puerto *IP* de una máquina a otra.
+
+**ssh-keygen** Genera una key que puede ser usada en la autenticación SSH.
+
+**ssh-L hanilita el puerto 8080 del host remoto para alojar la conexión.
+
+```bash
+# Generate public/private SSH key pair
+ssh-keygen -t rsa -b 4096 -C "myemail@example.com"  
+
+# Print the generated public key 
+cat ~/.ssh/id_rsa.pub
+
+# Clone a GitHub repo via SSH 
+git clone git@github.com:user/repo.git
+
+# Port forward remote port 8080 to local port 8080
+ssh -L 8080:localhost:8080 user@remotehost
+```
 
 
 ```bash
