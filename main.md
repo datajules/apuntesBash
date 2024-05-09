@@ -268,6 +268,40 @@ git clone git@github.com:user/repo.git
 ssh -L 8080:localhost:8080 user@remotehost
 ```
 
+Para crear una variable en donde alojar cosas como el ip usamos *export*:
+
+```bash
+export HOST = "54.89.238.83"
+echo $HOST
+```
+
+Para conectarse a un servidor remoto
+
+```bash
+# Generate SSH Key Pair
+ssh-keygen -t rsa -b 4096
+
+# SSH Remote Connection
+ssh username@remote_host 
+
+# Port Forwarding
+ssh -L 8888:remote_host:80 username@remote_host
+```
+
+**SSH**: Habilita un tunel encriptado para enviar comandos y recibir o enviar archivos a un servidor remoto. Permite manejar extensiones remotas de forma local. También nps permite debugeear nuestras aplicaciones alojadas directamente en un host remoto.
+
+
+
+```bash
+# Creamos una SSH key
+ssh-keygen -t rsa
+# Mostramos la credencial
+cat /home/ec2-user/.ssh/id_rsa.pub
+```
+
+La copiamos a github.
+
+Ahora podemos crear un nuevo repo y clonarlo vía ssh.
 
 ```bash
 
