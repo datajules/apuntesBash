@@ -355,6 +355,7 @@ Una *Shell variable* es una variable que solo existe y almacena datos que serán
 ```bash
 saludo="Hola"
 echo $saludo
+echo $saludo "¿Cómo estás?"
 ```
 Para hacerla accesible por *child shells* y *child processes* se emplea *export*.
 
@@ -379,8 +380,13 @@ bash
 echo "Soy un child - $saludo"
 ```
  Para acceder a las variables vía Python
+```bash
  import os
  print(os.environ['saludo'])
+```
+
+Las *shell variables* nos permiten almacenar datos para usarlos en scripts y procesos.
+
 
 ```bash
 
