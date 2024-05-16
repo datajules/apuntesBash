@@ -388,6 +388,34 @@ echo "Soy un child - $saludo"
 Las *shell variables* nos permiten almacenar datos para usarlos en scripts y procesos.
 
 
+## Flujos de datos
+
+Para guardar información en un archivo empleamos *>*.
+
+```bash
+ls -l > listaArchivos.txt
+```
+
+Para manejar datos que se ingresan desde otros programas o bien del usuario:
+
+```bash
+read -p "¿Cómo te llamas? " name
+echo "Hola $name"
+```
+
+Por lo regular cuando un programa o función arroja información, esta es manipulada por otros procesos por medio de pipes *|*.
+
+```bash
+echo -e "gato\nperro\ngato" | sort | uniq -c
+```
+ Otra operación común es administrar los errores que arrojan los programas almacenando las salidas
+
+```bash
+ls -l invalid 2> error.txt
+```
+
+
+
 ```bash
 
 ```
