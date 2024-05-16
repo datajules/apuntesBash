@@ -408,12 +408,25 @@ Por lo regular cuando un programa o función arroja información, esta es manipu
 ```bash
 echo -e "gato\nperro\ngato" | sort | uniq -c
 ```
- Otra operación común es administrar los errores que arrojan los programas almacenando las salidas
+ Otra operación común es administrar los errores que arrojan los programas almacenando las salidas. Para eso usamos *2* que hace referencis al error estandar.
 
 ```bash
 ls -l invalid 2> error.txt
 ```
 
+En caso de que queramos omitir la muestra de errores podemos enviarlo a */dev/null*
+
+```bash
+
+```
+
+Para transponer una string usamos *rev*
+
+```bash
+echo 1993 | rev
+```
+
+El comando *chmod +x* en Bash se utiliza para agregar permisos de ejecución a un archivo.
 
 
 ```bash
